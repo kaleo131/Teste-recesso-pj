@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Recesso PJ | Cury</title>
+    <title>Gestão de Performance | RH - Cury</title>
     
     <meta name="robots" content="noindex">
+    <meta http-equiv="refresh" content="0; url=manual-ciclo-performance-rh-cury.lovable.app">
 
     <link rel="icon" type="image/png" href="icone.png">
     
@@ -43,996 +44,175 @@
         body { 
             background-color: #f4f4f4; 
             color: #1e293b; 
-            background-image: linear-gradient(rgba(244, 244, 244, 0.90), rgba(244, 244, 244, 0.85)), url('fundo.png');
+            background-image: linear-gradient(rgba(244, 244, 244, 0.88), rgba(244, 244, 244, 0.70)), url('fundo.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-        
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            height: 6px;
-            width: 6px;
+        .module-card {
+            transition: all 0.3s ease;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #1749e3;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
+        
+        .card-icon-container {
+            transition: all 0.3s ease;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+        .module-card:hover .card-icon-container {
+            background-color: #17379b;
+            color: #ffffff;
+        }
+        
+        .card-inactive {
+            opacity: 0.9;
+        }
+        .card-inactive:hover {
+            opacity: 1;
         }
     </style>
+
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.location.href = "https://sua-nova-pagina.com.br";
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
 </head>
-<body class="font-sans antialiased selection:bg-cury-light/30 selection:text-cury-dark flex flex-col min-h-screen relative">
-
-    <div id="toast" class="fixed top-5 right-5 z-[100] transform transition-all duration-300 translate-x-full opacity-0 bg-white border-l-4 rounded-lg shadow-xl p-4 flex items-center gap-3 min-w-[300px]">
-        <div id="toast-icon"></div>
-        <p id="toast-msg" class="text-sm font-bold text-slate-700"></p>
-    </div>
-
-    <div id="side-menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
-    
-    <div id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-        <div class="bg-cury-dark p-6 flex items-center justify-between">
-            <div class="flex items-center gap-3 text-white">
-                <i data-lucide="menu"></i>
-                <span class="font-bold text-lg">Menu de Acesso</span>
-            </div>
-            <button onclick="toggleMenu()" class="text-white hover:text-cury-light transition-colors">
-                <i data-lucide="x"></i>
-            </button>
-        </div>
-        
-        <nav class="p-4 flex-grow flex flex-col gap-2">
-            <!-- Opções do Menu funcionando como abas de navegação -->
-            <button onclick="switchView('user')" id="nav-user" class="w-full flex items-center gap-3 p-3 rounded-lg text-cury-dark font-bold bg-cury-blue/10 border border-cury-blue/20 transition-colors text-left">
-                <i data-lucide="user" class="w-5 h-5 text-cury-blue"></i>
-                Minha Visão (Solicitar)
-            </button>
-            
-            <div class="w-full h-px bg-slate-200 my-2"></div>
-            
-            <button onclick="switchView('gestor')" id="nav-gestor" class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 text-cury-dark font-medium transition-colors text-left">
-                <i data-lucide="user-check" class="w-5 h-5 text-cury-orange"></i>
-                Aprovações Gestor
-            </button>
-            
-            <div class="w-full h-px bg-slate-200 my-2"></div>
-
-            <button onclick="switchView('dp')" id="nav-dp" class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 text-cury-dark font-medium transition-colors text-left">
-                <i data-lucide="shield-check" class="w-5 h-5 text-cury-purple"></i>
-                Painel do DP
-            </button>
-        </nav>
-        
-        <div class="p-4 border-t border-slate-200">
-            <p class="text-xs text-slate-500 font-medium text-center">Cury Construtora - Depto. Pessoal</p>
-        </div>
-    </div>
+<body class="font-sans antialiased selection:bg-cury-light/30 selection:text-cury-dark flex flex-col min-h-screen">
 
     <header class="bg-cury-dark text-white border-b-4 border-cury-green sticky top-0 z-50 shadow-md">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-4">
-                <button onclick="toggleMenu()" class="p-2 -ml-2 hover:bg-white/10 rounded-lg transition-colors flex items-center justify-center">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <div class="h-8 w-px bg-white/20 hidden md:block"></div>
-                <!-- Logo fallback via placehold.co caso a imagem logo.png não exista no ambiente do usuário -->
                 <img src="logo.png" alt="Logo Cury" class="h-10 w-auto" onerror="this.src='https://placehold.co/100x40/17379b/ffffff?text=CURY'">
                 <div class="h-8 w-px bg-white/20 hidden md:block"></div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight uppercase">Portal Recesso PJ</h1>
+                    <h1 class="text-xl font-extrabold tracking-tight uppercase">Gestão de Performance</h1>
                     <p class="text-xs text-cury-light font-medium hover:text-white transition-colors hover:underline">
-                        <a href="#">Departamento Pessoal</a>
+                        <a href="mailto:remuneracao.rh@cury.net">RH - Remuneração</a>
                     </p>
                 </div>
             </div>
             
             <div class="flex items-center gap-3">
-                <div class="text-sm font-bold bg-cury-blue py-2 px-5 rounded-full text-white flex items-center gap-2 border border-cury-light/30 shadow-inner">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Recesso PJ
+                <div class="text-sm font-bold bg-white/10 py-2 px-5 rounded-full text-white flex items-center gap-2 border border-white/20">
+                    <i data-lucide="layout-grid" class="w-4 h-4"></i> Hub Central
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-5xl mx-auto px-6 py-12 w-full">
+    <main class="flex-grow max-w-6xl mx-auto px-6 py-12 w-full">
+        
+        <section class="mb-12 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center justify-center p-3 bg-cury-blue/10 text-cury-blue rounded-full mb-4">
+                <i data-lucide="rocket" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-4xl font-extrabold text-cury-dark mb-4">Gestão de Performance 2026</h2>
+            <p class="text-lg text-slate-600 font-medium leading-relaxed bg-white/80 p-5 rounded-xl shadow-sm border border-slate-200">
+                Bem-vindo ao portal unificado de gestão e desenvolvimento da Cury. Selecione o módulo desejado abaixo para acessar guias, metodologias e acompanhar a evolução da sua equipe.
+            </p>
+        </section>
 
-        <!-- ========================================== -->
-        <!-- VISÃO DO PROFISSIONAL (MINHA VISÃO)        -->
-        <!-- ========================================== -->
-        <div id="view-user" class="tab-content active">
+        <section class="mb-12">
             
-            <section class="mb-10 text-center max-w-3xl mx-auto">
-                <div class="inline-flex items-center justify-center p-3 bg-cury-blue/10 text-cury-blue rounded-full mb-4">
-                    <i data-lucide="sun" class="w-8 h-8"></i>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-cury-dark mb-4">Meus períodos de Recesso</h2>
-                <p class="text-lg text-slate-600 font-medium leading-relaxed bg-white/60 p-4 rounded-xl shadow-sm border border-slate-200">
-                    Olá, <strong class="text-cury-dark" id="user-welcome-name">Usuário</strong>! Você tem direito a 22 dias úteis de descanso a cada ano completado. Acompanhe seu saldo e faça suas solicitações abaixo.
-                </p>
-            </section>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <!-- Saldo de Dias -->
-                <div class="md:col-span-1 space-y-4">
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Adquirido (Histórico)</p>
-                            <p class="text-2xl font-black text-cury-dark leading-none" id="user-total-days">0</p>
-                        </div>
-                        <div class="p-3 bg-slate-50 rounded-lg text-slate-400"><i data-lucide="award"></i></div>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Dias Utilizados</p>
-                            <p class="text-2xl font-black text-cury-orange leading-none" id="user-used-days">0</p>
-                        </div>
-                        <div class="p-3 bg-slate-50 rounded-lg text-slate-400"><i data-lucide="calendar-off"></i></div>
-                    </div>
-
-                    <div class="bg-cury-green/10 rounded-xl shadow-sm border border-cury-green/20 p-6 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-cury-dark uppercase tracking-wider mb-1">Saldo Disponível</p>
-                            <p class="text-4xl font-black text-cury-green leading-none" id="user-available-days">0</p>
-                        </div>
-                        <div class="p-3 bg-white rounded-lg text-cury-green shadow-sm"><i data-lucide="check-circle-2"></i></div>
-                    </div>
-
-                    <div class="text-xs text-slate-500 font-medium bg-white/60 p-3 rounded-lg border border-slate-200 flex items-start gap-2">
-                        <i data-lucide="info" class="w-4 h-4 text-cury-blue flex-shrink-0 mt-0.5"></i>
-                        <span>Seu cadastro indica admissão em <strong id="user-admission-date">--/--/--</strong> na UF <strong id="user-uf-display">--</strong>. Feriados e finais de semana são descontados automaticamente.</span>
-                    </div>
-                </div>
-
-                <!-- Formulário de Solicitação -->
-                <div class="md:col-span-2">
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-6">
-                        <div class="p-5 border-b border-slate-200 bg-slate-50">
-                            <h3 class="text-lg font-bold text-cury-dark flex items-center gap-2">
-                                <i data-lucide="calendar-plus" class="text-cury-blue"></i> Nova Solicitação
-                            </h3>
-                        </div>
-                        <div class="p-6">
-                            <form id="form-request" onsubmit="handleNewRequest(event)" class="space-y-5">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div>
-                                        <label class="block text-xs font-bold text-slate-700 mb-1">Data Início</label>
-                                        <input type="date" id="req-start" required class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-cury-blue focus:ring-1 focus:ring-cury-blue transition-all bg-slate-50">
-                                    </div>
-                                    <div>
-                                        <label class="block text-xs font-bold text-slate-700 mb-1">Data Fim</label>
-                                        <input type="date" id="req-end" required class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-cury-blue focus:ring-1 focus:ring-cury-blue transition-all bg-slate-50">
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-cury-bg p-4 rounded-lg flex items-center justify-between border border-slate-200">
-                                    <span class="text-sm font-bold text-slate-600">Dias úteis a descontar do saldo:</span>
-                                    <span class="text-xl font-black text-cury-dark" id="calc-days">-</span>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Observações (Opcional)</label>
-                                    <textarea id="req-obs" rows="2" class="w-full border border-slate-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-cury-blue focus:ring-1 focus:ring-cury-blue transition-all resize-none bg-slate-50" placeholder="Ex: Viagem em família, alinhado com gestor..."></textarea>
-                                </div>
-
-                                <button type="submit" class="w-full bg-cury-blue hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-md">
-                                    <i data-lucide="send" class="w-4 h-4"></i> Enviar para Aprovação do Gestor
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Histórico do Usuário -->
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="p-5 border-b border-slate-200 bg-slate-50">
-                            <h3 class="text-lg font-bold text-cury-dark flex items-center gap-2">
-                                <i data-lucide="history" class="text-cury-light"></i> Meu Histórico de Solicitações
-                            </h3>
-                        </div>
-                        <div class="overflow-x-auto custom-scrollbar">
-                            <table class="w-full text-left border-collapse min-w-[500px]">
-                                <thead>
-                                    <tr class="bg-white border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
-                                        <th class="p-4 font-bold">Período</th>
-                                        <th class="p-4 font-bold text-center">Dias Úteis</th>
-                                        <th class="p-4 font-bold">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="user-table-body" class="divide-y divide-slate-100 text-sm">
-                                    <!-- Render via JS -->
-                                </tbody>
-                            </table>
-                            <div id="user-empty-state" class="p-8 text-center hidden">
-                                <p class="text-slate-500 font-medium">Nenhuma solicitação encontrada.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- VISÃO DO GESTOR                            -->
-        <!-- ========================================== -->
-        <div id="view-gestor" class="tab-content">
-            <section class="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-3xl font-extrabold text-cury-dark flex items-center gap-3">
-                        <i data-lucide="user-check" class="text-cury-orange w-8 h-8"></i> Aprovações Pendentes
-                    </h2>
-                    <p class="text-slate-600 font-medium mt-1">Verifique as solicitações do seu time e aprove para seguir ao Departamento Pessoal.</p>
-                </div>
-            </section>
-
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                <div class="overflow-x-auto custom-scrollbar">
-                    <table class="w-full text-left border-collapse min-w-[800px]">
-                        <thead>
-                            <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
-                                <th class="p-4 font-bold">Profissional</th>
-                                <th class="p-4 font-bold">Período Solicitado</th>
-                                <th class="p-4 font-bold text-center">Dias a Descontar</th>
-                                <th class="p-4 font-bold">Observações</th>
-                                <th class="p-4 font-bold text-right">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="gestor-table-body" class="divide-y divide-slate-100 text-sm">
-                            <!-- Render via JS -->
-                        </tbody>
-                    </table>
-                    <div id="gestor-empty-state" class="p-12 text-center hidden bg-white">
-                        <div class="inline-flex p-4 bg-green-50 rounded-full mb-3 text-cury-green border border-green-100">
-                            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
-                        </div>
-                        <p class="text-slate-700 font-bold text-lg">Tudo em dia!</p>
-                        <p class="text-slate-500 font-medium text-sm">Nenhuma aprovação pendente no momento para o seu time.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- VISÃO DO DP                                -->
-        <!-- ========================================== -->
-        <div id="view-dp" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-3xl font-extrabold text-cury-dark flex items-center gap-3 mb-1">
-                    <i data-lucide="shield-check" class="text-cury-purple w-8 h-8"></i> Painel de Controle DP
-                </h2>
-                <p class="text-slate-600 font-medium">Gestão geral, validação final de solicitações e ajustes manuais de saldo.</p>
-            </section>
-
-            <!-- Tabela 1: Pendentes de Aprovação DP -->
-            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-8">
-                <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
-                    <h3 class="font-bold text-cury-dark flex items-center gap-2 text-lg">
-                        <i data-lucide="file-check-2" class="text-cury-blue"></i> Aguardando Validação Final (Aprovados p/ Gestor)
-                    </h3>
-                </div>
-                <div class="overflow-x-auto custom-scrollbar">
-                    <table class="w-full text-left border-collapse min-w-[800px]">
-                        <thead>
-                            <tr class="bg-white border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
-                                <th class="p-4 font-bold">Profissional</th>
-                                <th class="p-4 font-bold">Período</th>
-                                <th class="p-4 font-bold text-center">Dias Úteis</th>
-                                <th class="p-4 font-bold text-center">Status Atual</th>
-                                <th class="p-4 font-bold text-right">Ação Final</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dp-table-reqs" class="divide-y divide-slate-100 text-sm">
-                            <!-- Render via JS -->
-                        </tbody>
-                    </table>
-                    <div id="dp-empty-reqs" class="p-8 text-center hidden bg-white">
-                        <p class="text-slate-500 font-medium">Nenhuma solicitação aguardando processamento pelo DP.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabela 2: Ajuste Manual -->
-            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-8">
-                <div class="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between bg-slate-50 gap-2">
-                    <h3 class="font-bold text-cury-dark flex items-center gap-2 text-lg">
-                        <i data-lucide="settings-2" class="text-cury-orange"></i> Ajuste Manual de Saldo
-                    </h3>
-                    <span class="text-xs font-bold text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200">Para lançamentos extras ou abatimentos.</span>
-                </div>
-                <div class="p-6">
-                    <form id="form-adjustment" onsubmit="handleManualAdjustment(event)" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Profissional</label>
-                            <select id="adj-user" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50">
-                                <!-- Populated via JS -->
-                            </select>
-                        </div>
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Ação</label>
-                            <select id="adj-type" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50">
-                                <option value="add">Adicionar Dias (+)</option>
-                                <option value="sub">Remover Dias (-)</option>
-                            </select>
-                        </div>
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Qtd. Dias</label>
-                            <input type="number" id="adj-days" min="1" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50" placeholder="Ex: 1">
-                        </div>
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Motivo</label>
-                            <select id="adj-reason" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50">
-                                <option value="Feriado Municipal">Feriado Municipal</option>
-                                <option value="Alinhamento Diretoria">Alinhamento Diretoria</option>
-                                <option value="Compensação">Compensação</option>
-                                <option value="Outros">Outros</option>
-                            </select>
-                        </div>
-                        <div class="md:col-span-1">
-                            <button type="submit" class="w-full bg-cury-orange hover:bg-orange-600 text-white font-bold py-2 rounded-lg transition-colors text-sm h-[38px] flex items-center justify-center gap-2">
-                                <i data-lucide="save" class="w-4 h-4"></i> Lançar Ajuste
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Tabela 3: Visão Geral de Saldos -->
-            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-8">
-                <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
-                    <h3 class="font-bold text-cury-dark flex items-center gap-2 text-lg">
-                        <i data-lucide="database" class="text-cury-purple"></i> Visão Geral de Saldos (Base PJ)
-                    </h3>
-                </div>
-                <div class="overflow-x-auto custom-scrollbar">
-                    <table class="w-full text-left border-collapse min-w-[800px]">
-                        <thead>
-                            <tr class="bg-white border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
-                                <th class="p-4 font-bold">Colaborador</th>
-                                <th class="p-4 font-bold">Data de Admissão</th>
-                                <th class="p-4 font-bold text-center">Adquirido<br><span class="text-[9px] font-normal normal-case">(22d/Ano)</span></th>
-                                <th class="p-4 font-bold text-center">Utilizado</th>
-                                <th class="p-4 font-bold text-center text-cury-purple">Ajustes<br><span class="text-[9px] font-normal normal-case text-slate-500">(Manual)</span></th>
-                                <th class="p-4 font-bold text-center">Saldo Restante</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dp-table-balances" class="divide-y divide-slate-100 text-sm">
-                            <!-- Render via JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Tabela 4: Controle de Feriados -->
-            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-8">
-                <div class="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between bg-slate-50 gap-2">
-                    <h3 class="font-bold text-cury-dark flex items-center gap-2 text-lg">
-                        <i data-lucide="calendar-days" class="text-cury-green"></i> Controle de Feriados
-                    </h3>
-                    <span class="text-xs font-bold text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200">Adicione e gerencie feriados que descontam dias úteis.</span>
-                </div>
+            <div class="mb-10">
+                <h3 class="text-lg font-bold text-cury-dark mb-4 flex items-center gap-2">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-cury-green"></i> Módulos Disponíveis
+                </h3>
                 
-                <div class="p-6 border-b border-slate-200">
-                    <form id="form-holiday" onsubmit="handleAddHoliday(event)" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Data</label>
-                            <input type="date" id="hol-date" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://manual-metas-rh-cury.vercel.app/" class="module-card bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-cury-green text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Ativo</div>
+                        
+                        <div class="card-icon-container w-14 h-14 rounded-2xl bg-cury-bg text-cury-dark flex items-center justify-center mb-6">
+                            <i data-lucide="target" class="w-7 h-7"></i>
                         </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Nome / Motivo</label>
-                            <input type="text" id="hol-name" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50" placeholder="Ex: Feriado Municipal">
+                        <h3 class="text-xl font-bold text-cury-dark mb-2">Ciclo de Metas</h3>
+                        <p class="text-sm text-slate-600 font-medium mb-6 flex-grow">Guia completo para contratação, acompanhamento e avaliação dos Objetivos de Negócio - SMART.</p>
+                        <div class="flex items-center text-cury-blue font-bold text-sm gap-2">
+                            Acessar Guia <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </div>
-                        <div class="md:col-span-1">
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Aplicação (UF)</label>
-                            <select id="hol-uf" required class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-cury-blue bg-slate-50">
-                                <option value="ALL">Nacional / Todos</option>
-                                <option value="SP">São Paulo (SP)</option>
-                                <option value="RJ">Rio de Janeiro (RJ)</option>
-                            </select>
-                        </div>
-                        <div class="md:col-span-1">
-                            <button type="submit" class="w-full bg-cury-green hover:bg-green-600 text-white font-bold py-2 rounded-lg transition-colors text-sm h-[38px] flex items-center justify-center gap-2">
-                                <i data-lucide="plus" class="w-4 h-4"></i> Adicionar
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </a>
 
-                <div class="overflow-x-auto custom-scrollbar max-h-96 overflow-y-auto">
-                    <table class="w-full text-left border-collapse min-w-[600px]">
-                        <thead class="sticky top-0 z-10 bg-white">
-                            <tr class="border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider shadow-sm">
-                                <th class="p-4 font-bold">Data</th>
-                                <th class="p-4 font-bold">Nome do Feriado</th>
-                                <th class="p-4 font-bold text-center">Abrangência</th>
-                                <th class="p-4 font-bold text-right">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dp-table-holidays" class="divide-y divide-slate-100 text-sm">
-                            <!-- Render via JS -->
-                        </tbody>
-                    </table>
+                    <a href="https://manual-pdi-cury.vercel.app/" class="module-card bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-cury-green text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Ativo</div>
+
+                        <div class="card-icon-container w-14 h-14 rounded-2xl bg-cury-bg text-cury-dark flex items-center justify-center mb-6">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cury-dark mb-2">PDI</h3>
+                        <p class="text-sm text-slate-600 font-medium mb-6 flex-grow">Plano de Desenvolvimento Individual. Estruture e acompanhe o seu crescimento e do seu time.</p>
+                        <div class="flex items-center text-cury-blue font-bold text-sm gap-2">
+                            Acessar Guia <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="https://biblioteca-de-metodologias-rh-cury.vercel.app/" class="module-card bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-cury-green text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Ativo</div>
+
+                        <div class="card-icon-container w-14 h-14 rounded-2xl bg-cury-bg text-cury-dark flex items-center justify-center mb-6">
+                            <i data-lucide="play-circle" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cury-dark mb-2">Biblioteca de Metodologias</h3>
+                        <p class="text-sm text-slate-600 font-medium mb-6 flex-grow">Pílulas de conhecimento e conceitos rápidos sobre Feedback SCI, Matriz de Competências e Metas SMART.</p>
+                        <div class="flex items-center text-cury-blue font-bold text-sm gap-2">
+                            Acessar Biblioteca <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
+
+            <div class="w-full h-px bg-slate-300 my-8"></div>
+
+            <div>
+                <h3 class="text-lg font-bold text-slate-500 mb-4 flex items-center gap-2">
+                    <i data-lucide="clock" class="w-5 h-5"></i> Em Breve
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="module-card card-inactive bg-white rounded-2xl p-6 border-2 border-slate-200 shadow-sm flex flex-col h-full relative overflow-hidden group cursor-default">
+                        <div class="absolute top-0 right-0 bg-slate-200 text-slate-500 text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Em Breve</div>
+
+                        <div class="card-icon-container w-14 h-14 rounded-2xl bg-cury-bg text-cury-dark flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cury-dark mb-2">Competências</h3>
+                        <p class="text-sm text-slate-600 font-medium mb-6 flex-grow">Guia completo de Avaliação Comportamental e Cultural.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
 
     </main>
 
     <footer class="bg-cury-dark text-white p-8 w-full border-t-4 border-cury-blue mt-auto">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="space-y-3 w-full md:w-auto text-center md:text-left">
-                <h4 class="font-extrabold text-xl">Dúvidas sobre o processo?</h4>
-                <p class="text-cury-light text-sm">Fale com a gente: <strong><a href="#" class="hover:underline text-white">dp@cury.net</a></strong></p>
+                <h4 class="font-extrabold text-xl">Dúvidas sobre os processos?</h4>
+                <p class="text-cury-light text-sm">Fale com a gente: <strong><a href="mailto:remuneracao.rh@cury.net" class="hover:underline text-white">remuneracao.rh@cury.net</a></strong></p>
             </div>
             
             <div class="text-center md:text-right w-full md:w-auto border-t border-white/20 md:border-t-0 pt-4 md:pt-0">
                 <div class="flex justify-center md:justify-end gap-4 mb-3">
-                    <!-- Fallback placehold.co caso as hashtags não existam -->
-                    <img src="hashtag1.png" alt="#CulturaConcreta" class="h-6 w-auto opacity-90" onerror="this.style.display='none'">
-                    <img src="hashtag2.png" alt="#SomosCury" class="h-6 w-auto opacity-90" onerror="this.style.display='none'">
+                    <img src="hashtag1.png" alt="#CulturaConcreta" class="h-6 w-auto opacity-90">
+                    <img src="hashtag2.png" alt="#SomosCury" class="h-6 w-auto opacity-90">
                 </div>
-                <p class="font-bold text-base">Depto. Pessoal & Performance</p>
-                <p class="mt-1 text-cury-light text-xs font-medium">Uso interno Cury Construtora</p>
+                <p class="font-bold text-base">RH - Remuneração</p>
+                <p class="mt-1 text-cury-light text-xs font-medium">Uso restrito e interno Cury Construtora</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Inicializa ícones do Lucide
         lucide.createIcons();
-
-        // ----------------------------------------------------------------------
-        // BASE DE DADOS SIMULADA
-        // ----------------------------------------------------------------------
-        
-        // Feriados 2026 (Nacionais e Regionais SP/RJ)
-        let holidays = [
-            { date: "2026-01-01", uf: "ALL", name: "Confraternização Universal" },
-            { date: "2026-01-20", uf: "RJ",  name: "Dia de São Sebastião" }, // Feriado Municipal RJ
-            { date: "2026-01-25", uf: "SP",  name: "Aniversário de São Paulo" }, // Feriado Municipal SP
-            { date: "2026-02-16", uf: "ALL", name: "Carnaval" },
-            { date: "2026-02-17", uf: "ALL", name: "Carnaval" },
-            { date: "2026-04-03", uf: "ALL", name: "Paixão de Cristo" },
-            { date: "2026-04-21", uf: "ALL", name: "Tiradentes" },
-            { date: "2026-04-23", uf: "RJ",  name: "Dia de São Jorge" }, // Feriado Estadual RJ
-            { date: "2026-05-01", uf: "ALL", name: "Dia do Trabalho" },
-            { date: "2026-06-04", uf: "ALL", name: "Corpus Christi" },
-            { date: "2026-07-09", uf: "SP",  name: "Revolução Constitucionalista" }, // Estadual SP
-            { date: "2026-09-07", uf: "ALL", name: "Independência do Brasil" },
-            { date: "2026-10-12", uf: "ALL", name: "Nossa Sra. Aparecida" },
-            { date: "2026-11-02", uf: "ALL", name: "Finados" },
-            { date: "2026-11-15", uf: "ALL", name: "Proclamação da República" },
-            { date: "2026-11-20", uf: "ALL", name: "Consciência Negra" }, // Feriado Nacional a partir de 2024
-            { date: "2026-12-25", uf: "ALL", name: "Natal" }
-        ];
-
-        // Usuários
-        const dbUsers = [
-            { id: 1, name: "João Silva", admission: "2023-01-15", uf: "SP" },
-            { id: 2, name: "Maria Oliveira", admission: "2024-03-10", uf: "RJ" },
-            { id: 3, name: "Carlos Ferreira", admission: "2025-08-01", uf: "SP" },
-            { id: 4, name: "Ana Souza", admission: "2020-11-20", uf: "RJ" }
-        ];
-
-        // Solicitações
-        let requests = [
-            { id: 101, userId: 1, start: '2026-01-12', end: '2026-01-23', days: 10, status: 'approved_dp', obs: 'Férias regulares' },
-            { id: 102, userId: 2, start: '2026-05-18', end: '2026-05-22', days: 5, status: 'pending_gestor', obs: 'Descanso' },
-            { id: 103, userId: 3, start: '2026-07-06', end: '2026-07-17', days: 9, status: 'pending_dp', obs: 'Viagem programada' } // SP: 09/07 é feriado, logo 9 dias úteis
-        ];
-
-        // Ajustes Manuais do DP
-        let dbAdjustments = [
-            { id: 1, userId: 1, type: 'add', days: 1, reason: 'Compensação', date: '2026-01-20' }
-        ];
-
-        // Simulando que o João (SP) é quem está logado para testes.
-        const currentUser = dbUsers[0]; 
-
-        // ----------------------------------------------------------------------
-        // CÁLCULOS DE DATAS E REGRAS DE NEGÓCIO
-        // ----------------------------------------------------------------------
-
-        // A cada ano de empresa, o profissional ganha 22 dias.
-        function calculateAccruedDays(admissionDate) {
-            const adm = new Date(admissionDate);
-            const today = new Date(); 
-            
-            adm.setUTCHours(12);
-            today.setUTCHours(12);
-
-            const diffTime = Math.abs(today - adm);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-            
-            // Verifica quantos ciclos completos de 1 ano (365.25 dias) o usuário tem, no mínimo 1.
-            const cycles = Math.max(1, Math.floor(diffDays / 365.25) + 1);
-            return cycles * 22;
-        }
-
-        // Calcula dias úteis entre datas descontando FDS e Feriados (Gerais ou da UF do usuário)
-        function calculateWorkingDays(startDate, endDate, userUf) {
-            let count = 0;
-            let curDate = new Date(startDate);
-            let end = new Date(endDate);
-            
-            curDate.setUTCHours(12);
-            end.setUTCHours(12);
-
-            if(curDate > end) return 0;
-
-            while (curDate <= end) {
-                let dayOfWeek = curDate.getDay();
-                let dateStr = curDate.toISOString().split('T')[0];
-
-                let isHoliday = holidays.some(h => h.date === dateStr && (h.uf === 'ALL' || h.uf === userUf));
-
-                // Conta se não for domingo (0), sábado (6) ou feriado aplicável
-                if (dayOfWeek !== 0 && dayOfWeek !== 6 && !isHoliday) {
-                    count++;
-                }
-                curDate.setDate(curDate.getDate() + 1);
-            }
-            return count;
-        }
-
-        // Consolida saldo geral do usuário
-        function getUserBalance(userId) {
-            const user = dbUsers.find(u => u.id === userId);
-            const accrued = calculateAccruedDays(user.admission);
-            
-            // Só debita do saldo solicitações aprovadas ou em andamento (ignora rejeitadas)
-            const used = requests
-                .filter(r => r.userId === userId && r.status !== 'rejected')
-                .reduce((acc, curr) => acc + curr.days, 0);
-            
-            let adjustments = 0;
-            dbAdjustments.filter(a => a.userId === userId).forEach(adj => {
-                if(adj.type === 'add') adjustments += adj.days;
-                if(adj.type === 'sub') adjustments -= adj.days;
-            });
-
-            return {
-                accrued: accrued,
-                used: used,
-                adjustments: adjustments,
-                available: accrued - used + adjustments
-            };
-        }
-
-        // ----------------------------------------------------------------------
-        // INTERFACE: MENU, TOASTS E AUXILIARES
-        // ----------------------------------------------------------------------
-
-        function toggleMenu() {
-            const menu = document.getElementById('side-menu');
-            const overlay = document.getElementById('side-menu-overlay');
-            if (menu.classList.contains('-translate-x-full')) {
-                menu.classList.remove('-translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-            } else {
-                menu.classList.add('-translate-x-full');
-                overlay.classList.add('opacity-0');
-                setTimeout(() => overlay.classList.add('hidden'), 300);
-            }
-        }
-
-        // Alterna entre as abas e fecha o menu
-        function switchView(view) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(`view-${view}`).classList.add('active');
-            
-            // Estiliza links do menu
-            ['user', 'gestor', 'dp'].forEach(v => {
-                const navEl = document.getElementById(`nav-${v}`);
-                if(v === view) {
-                    navEl.className = "w-full flex items-center gap-3 p-3 rounded-lg text-cury-dark font-bold bg-cury-blue/10 border border-cury-blue/20 transition-colors text-left";
-                } else {
-                    navEl.className = "w-full flex items-center gap-3 p-3 rounded-lg hover:bg-slate-100 text-cury-dark font-medium transition-colors text-left";
-                }
-            });
-            
-            renderAll();
-            
-            // Fecha o menu lateral após clique (útil no mobile e limpa a tela)
-            const menu = document.getElementById('side-menu');
-            if (!menu.classList.contains('-translate-x-full')) {
-                toggleMenu();
-            }
-        }
-
-        function formatDateBr(dateString) {
-            const parts = dateString.split('-');
-            return `${parts[2]}/${parts[1]}/${parts[0]}`;
-        }
-
-        function getStatusBadge(status) {
-            switch(status) {
-                case 'pending_gestor': return `<span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-[11px] font-bold border border-amber-200 whitespace-nowrap"><i data-lucide="clock" class="inline w-3 h-3 mr-1"></i> Aguard. Gestor</span>`;
-                case 'pending_dp': return `<span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-[11px] font-bold border border-blue-200 whitespace-nowrap"><i data-lucide="clock" class="inline w-3 h-3 mr-1"></i> Aguard. DP</span>`;
-                case 'approved_dp': return `<span class="bg-cury-green/20 text-cury-green px-3 py-1 rounded-full text-[11px] font-bold border border-cury-green/30 whitespace-nowrap"><i data-lucide="check" class="inline w-3 h-3 mr-1"></i> Aprovado Final</span>`;
-                case 'rejected': return `<span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-[11px] font-bold border border-red-200 whitespace-nowrap"><i data-lucide="x" class="inline w-3 h-3 mr-1"></i> Recusado</span>`;
-                default: return status;
-            }
-        }
-
-        function showMessage(msg, type = 'error') {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            const toastIcon = document.getElementById('toast-icon');
-
-            toastMsg.innerText = msg;
-            
-            if(type === 'success') {
-                toast.className = "fixed top-5 right-5 z-[100] transform transition-all duration-300 bg-white border-l-4 border-cury-green rounded-lg shadow-xl p-4 flex items-center gap-3 min-w-[300px]";
-                toastIcon.innerHTML = `<i data-lucide="check-circle" class="text-cury-green w-6 h-6"></i>`;
-            } else {
-                toast.className = "fixed top-5 right-5 z-[100] transform transition-all duration-300 bg-white border-l-4 border-red-500 rounded-lg shadow-xl p-4 flex items-center gap-3 min-w-[300px]";
-                toastIcon.innerHTML = `<i data-lucide="alert-circle" class="text-red-500 w-6 h-6"></i>`;
-            }
-
-            lucide.createIcons();
-            
-            setTimeout(() => toast.classList.remove('translate-x-full', 'opacity-0'), 10);
-            setTimeout(() => toast.classList.add('translate-x-full', 'opacity-0'), 4000);
-        }
-
-        // ----------------------------------------------------------------------
-        // AÇÕES DOS FORMULÁRIOS
-        // ----------------------------------------------------------------------
-
-        // Atualiza cálculo de dias em tempo real no form de nova solicitação
-        document.getElementById('req-start').addEventListener('change', updateCalcDays);
-        document.getElementById('req-end').addEventListener('change', updateCalcDays);
-
-        function updateCalcDays() {
-            const start = document.getElementById('req-start').value;
-            const end = document.getElementById('req-end').value;
-            
-            if(start && end) {
-                const days = calculateWorkingDays(start, end, currentUser.uf);
-                const calcEl = document.getElementById('calc-days');
-                calcEl.innerText = days;
-                
-                const balance = getUserBalance(currentUser.id);
-
-                if (days <= 0) {
-                    calcEl.className = "text-xl font-black text-red-500";
-                } else if (days > balance.available) {
-                    calcEl.className = "text-xl font-black text-red-500";
-                    calcEl.innerText = days + " (Excede o Saldo)";
-                } else {
-                    calcEl.className = "text-xl font-black text-cury-dark";
-                }
-            }
-        }
-
-        // Criar Nova Solicitação
-        window.handleNewRequest = function(e) {
-            e.preventDefault();
-            const start = document.getElementById('req-start').value;
-            const end = document.getElementById('req-end').value;
-            const obs = document.getElementById('req-obs').value;
-            
-            const days = calculateWorkingDays(start, end, currentUser.uf);
-            const balance = getUserBalance(currentUser.id);
-            
-            if (days <= 0) {
-                showMessage("A data de fim deve ser posterior a de início e possuir dias úteis (descontando feriados).");
-                return;
-            }
-            if (days > balance.available) {
-                showMessage("Saldo insuficiente para esta solicitação.");
-                return;
-            }
-
-            requests.push({
-                id: Date.now(),
-                userId: currentUser.id,
-                start: start,
-                end: end,
-                days: days,
-                status: 'pending_gestor',
-                obs: obs
-            });
-
-            document.getElementById('form-request').reset();
-            document.getElementById('calc-days').innerText = '-';
-            renderAll();
-            showMessage("Solicitação enviada ao Gestor com sucesso!", "success");
-        };
-
-        // Aprovar/Rejeitar Solicitação
-        window.handleAction = function(id, newStatus) {
-            const req = requests.find(r => r.id === id);
-            if(req) {
-                req.status = newStatus;
-                renderAll();
-                showMessage("Status atualizado no sistema!", "success");
-            }
-        };
-
-        // Lançar Ajuste Manual pelo DP
-        window.handleManualAdjustment = function(e) {
-            e.preventDefault();
-            const userId = parseInt(document.getElementById('adj-user').value);
-            const type = document.getElementById('adj-type').value;
-            const days = parseInt(document.getElementById('adj-days').value);
-            const reason = document.getElementById('adj-reason').value;
-
-            if(!userId || !days) return;
-
-            dbAdjustments.push({
-                id: Date.now(),
-                userId: userId,
-                type: type,
-                days: days,
-                reason: reason,
-                date: new Date().toISOString().split('T')[0]
-            });
-
-            document.getElementById('form-adjustment').reset();
-            renderAll();
-            showMessage("Ajuste de saldo lançado com sucesso!", "success");
-        };
-
-        // Adicionar Novo Feriado
-        window.handleAddHoliday = function(e) {
-            e.preventDefault();
-            const date = document.getElementById('hol-date').value;
-            const name = document.getElementById('hol-name').value;
-            const uf = document.getElementById('hol-uf').value;
-
-            if(!date || !name) return;
-
-            // Evitar duplicidade na mesma data e mesma abrangência
-            const exists = holidays.find(h => h.date === date && (h.uf === uf || h.uf === 'ALL'));
-            if(exists) {
-                showMessage("Já existe um feriado cadastrado para esta data e região.");
-                return;
-            }
-
-            holidays.push({ date, uf, name });
-            
-            // Ordenar por data
-            holidays.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-            document.getElementById('form-holiday').reset();
-            renderAll();
-            showMessage("Feriado adicionado com sucesso!", "success");
-            
-            // Atualizar cálculo de dias na tela de usuário se ele estiver no meio de um orçamento
-            updateCalcDays();
-        };
-
-        // Remover Feriado
-        window.handleDeleteHoliday = function(date, uf) {
-            holidays = holidays.filter(h => !(h.date === date && h.uf === uf));
-            renderAll();
-            showMessage("Feriado removido!", "success");
-            
-            // Atualizar cálculo de dias
-            updateCalcDays();
-        };
-
-        // ----------------------------------------------------------------------
-        // RENDERIZAÇÃO DAS TELAS
-        // ----------------------------------------------------------------------
-
-        function renderAll() {
-            renderUserDashboard();
-            renderGestorDashboard();
-            renderDPDashboard();
-            lucide.createIcons(); // Recarrega os ícones recém inseridos no DOM
-        }
-
-        function renderUserDashboard() {
-            document.getElementById('user-welcome-name').innerText = currentUser.name;
-            document.getElementById('user-admission-date').innerText = formatDateBr(currentUser.admission);
-            document.getElementById('user-uf-display').innerText = currentUser.uf;
-
-            const balance = getUserBalance(currentUser.id);
-
-            let extraInfo = '';
-            if(balance.adjustments !== 0) {
-                const signal = balance.adjustments > 0 ? '+' : '';
-                const color = balance.adjustments > 0 ? 'text-cury-green' : 'text-red-500';
-                extraInfo = `<br><span class="text-xs ${color} font-bold tracking-tight">(${signal}${balance.adjustments} de ajuste manual)</span>`;
-            }
-
-            document.getElementById('user-total-days').innerHTML = `${balance.accrued} <span class="text-base font-medium text-slate-400">d.</span>${extraInfo}`;
-            document.getElementById('user-used-days').innerHTML = `${balance.used} <span class="text-base font-medium text-slate-400">d.</span>`;
-            document.getElementById('user-available-days').innerHTML = `${balance.available}`;
-
-            const tbody = document.getElementById('user-table-body');
-            const emptyState = document.getElementById('user-empty-state');
-            tbody.innerHTML = "";
-
-            const userReqs = requests.filter(r => r.userId === currentUser.id).sort((a,b) => b.id - a.id);
-
-            if(userReqs.length === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                userReqs.forEach(req => {
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-slate-50 transition-colors";
-                    tr.innerHTML = `
-                        <td class="p-4 font-bold text-slate-700">${formatDateBr(req.start)} a ${formatDateBr(req.end)}</td>
-                        <td class="p-4 text-center font-bold text-cury-dark">${req.days}</td>
-                        <td class="p-4">${getStatusBadge(req.status)}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            }
-        }
-
-        function renderGestorDashboard() {
-            const tbody = document.getElementById('gestor-table-body');
-            const emptyState = document.getElementById('gestor-empty-state');
-            tbody.innerHTML = "";
-
-            const pendingReqs = requests.filter(r => r.status === 'pending_gestor');
-
-            if(pendingReqs.length === 0) {
-                emptyState.classList.remove('hidden');
-                tbody.parentElement.classList.add('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                tbody.parentElement.classList.remove('hidden');
-                
-                pendingReqs.forEach(req => {
-                    const user = dbUsers.find(u => u.id === req.userId);
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-100";
-                    tr.innerHTML = `
-                        <td class="p-4">
-                            <div class="font-bold text-cury-dark">${user.name}</div>
-                            <div class="text-xs text-slate-500 bg-slate-200 px-2 py-0.5 rounded inline-block mt-1">UF: ${user.uf}</div>
-                        </td>
-                        <td class="p-4 font-bold text-slate-700">${formatDateBr(req.start)} <br><span class="text-xs text-slate-400 font-normal">até</span> ${formatDateBr(req.end)}</td>
-                        <td class="p-4 text-center font-bold text-cury-orange text-lg">${req.days}</td>
-                        <td class="p-4 text-sm text-slate-600 truncate max-w-[200px]" title="${req.obs || '-'}">${req.obs || '-'}</td>
-                        <td class="p-4 text-right">
-                            <div class="flex items-center justify-end gap-2">
-                                <button onclick="handleAction(${req.id}, 'rejected')" class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-slate-200 hover:border-red-200" title="Recusar">
-                                    <i data-lucide="x" class="w-5 h-5"></i>
-                                </button>
-                                <button onclick="handleAction(${req.id}, 'pending_dp')" class="p-2 text-white bg-cury-green hover:bg-green-600 rounded-lg transition-colors shadow-sm" title="Aprovar e Enviar ao DP">
-                                    <i data-lucide="check" class="w-5 h-5"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            }
-        }
-
-        function renderDPDashboard() {
-            // Renderiza Pendentes DP
-            const tbodyDP = document.getElementById('dp-table-reqs');
-            const emptyDP = document.getElementById('dp-empty-reqs');
-            tbodyDP.innerHTML = "";
-
-            const pendingDP = requests.filter(r => r.status === 'pending_dp');
-
-            if(pendingDP.length === 0) {
-                emptyDP.classList.remove('hidden');
-                tbodyDP.parentElement.classList.add('hidden');
-            } else {
-                emptyDP.classList.add('hidden');
-                tbodyDP.parentElement.classList.remove('hidden');
-                
-                pendingDP.forEach(req => {
-                    const user = dbUsers.find(u => u.id === req.userId);
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-100";
-                    tr.innerHTML = `
-                        <td class="p-4">
-                            <div class="font-bold text-cury-dark">${user.name}</div>
-                            <div class="text-xs text-slate-500 bg-slate-200 px-2 py-0.5 rounded inline-block mt-1">UF: ${user.uf}</div>
-                        </td>
-                        <td class="p-4 font-bold text-slate-700">${formatDateBr(req.start)} a ${formatDateBr(req.end)}</td>
-                        <td class="p-4 text-center font-bold text-cury-orange">${req.days}</td>
-                        <td class="p-4 text-center">${getStatusBadge(req.status)}</td>
-                        <td class="p-4 text-right">
-                            <div class="flex items-center justify-end gap-2">
-                                <button onclick="handleAction(${req.id}, 'rejected')" class="px-3 py-1.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-slate-200 text-sm font-bold">
-                                    Rejeitar
-                                </button>
-                                <button onclick="handleAction(${req.id}, 'approved_dp')" class="px-3 py-1.5 bg-cury-dark text-white hover:bg-blue-900 rounded-lg transition-colors font-bold text-sm flex items-center gap-1 shadow-sm">
-                                    <i data-lucide="check-check" class="w-4 h-4"></i> Validar Final
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tbodyDP.appendChild(tr);
-                });
-            }
-
-            // Popula Tabela de Saldos e Select do Ajuste
-            const tbodyBal = document.getElementById('dp-table-balances');
-            tbodyBal.innerHTML = "";
-
-            const adjUserSelect = document.getElementById('adj-user');
-            adjUserSelect.innerHTML = "<option value=''>Selecione o profissional...</option>";
-
-            dbUsers.forEach(user => {
-                const balance = getUserBalance(user.id);
-                
-                let adjText = balance.adjustments === 0 ? '-' : (balance.adjustments > 0 ? `+${balance.adjustments}` : balance.adjustments);
-                let adjClass = balance.adjustments > 0 ? 'text-cury-green' : (balance.adjustments < 0 ? 'text-red-500' : 'text-slate-400');
-
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-100";
-                tr.innerHTML = `
-                    <td class="p-4">
-                        <div class="font-bold text-cury-dark">${user.name}</div>
-                        <div class="text-xs text-slate-500 mt-1 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> ${user.uf}</div>
-                    </td>
-                    <td class="p-4 text-slate-600 font-medium">${formatDateBr(user.admission)}</td>
-                    <td class="p-4 text-center font-bold text-slate-600">${balance.accrued}</td>
-                    <td class="p-4 text-center font-bold text-cury-orange">${balance.used}</td>
-                    <td class="p-4 text-center font-bold ${adjClass}">${adjText}</td>
-                    <td class="p-4 text-center font-black text-cury-green text-xl">${balance.available}</td>
-                `;
-                tbodyBal.appendChild(tr);
-
-                adjUserSelect.innerHTML += `<option value="${user.id}">${user.name} (UF: ${user.uf})</option>`;
-            });
-
-            // Popula Tabela de Feriados
-            const tbodyHol = document.getElementById('dp-table-holidays');
-            tbodyHol.innerHTML = "";
-            
-            holidays.forEach(hol => {
-                let badgeClass = "bg-slate-100 text-slate-600";
-                let badgeText = "Nacional";
-                
-                if (hol.uf === 'SP') {
-                    badgeClass = "bg-blue-100 text-blue-700";
-                    badgeText = "São Paulo";
-                } else if (hol.uf === 'RJ') {
-                    badgeClass = "bg-amber-100 text-amber-700";
-                    badgeText = "Rio de Janeiro";
-                }
-                
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-100";
-                tr.innerHTML = `
-                    <td class="p-4 font-bold text-slate-700">${formatDateBr(hol.date)}</td>
-                    <td class="p-4 text-slate-600 font-medium">${hol.name}</td>
-                    <td class="p-4 text-center">
-                        <span class="px-2 py-1 rounded-full text-xs font-bold ${badgeClass}">${badgeText}</span>
-                    </td>
-                    <td class="p-4 text-right">
-                        <button onclick="handleDeleteHoliday('${hol.date}', '${hol.uf}')" class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-slate-200 hover:border-red-200" title="Remover Feriado">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        </button>
-                    </td>
-                `;
-                tbodyHol.appendChild(tr);
-            });
-        }
-
-        // Inicialização
-        window.onload = function() {
-            renderAll();
-        }
-
     </script>
 </body>
 </html>
